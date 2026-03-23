@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AStore Fashion | Products </title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?
+        family=Poppins:ital,wght@0,
+        100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,
+        400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+        rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+            <div class="container">
+                <div class="navbar">
+                    <div class="logo">
+                        <img src="images/5816.png" width="125px" alt="">
+                    </div>
+                    <nav>
+                        <ul id="MenuItems">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#products">Products</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <!-- <li><a href="">Contact</a></li> -->
+                        </ul>
+                    </nav>
+                    <img src="images/menu.png" width="30px" class="menu-icon" onclick="menutoggle()">
+                </div>
+
+                <div class="row">
+                    <div class="col-2">
+                        <h1>Welcome !<br> to AStore Fashion !!</h1>
+                        <p> Astore Fashion is your go-to hub for discovering top-notch fashion .where we  showcase  
+                            stylish and trendy clothing from various businesses, helping you find the best fashion deals.
+                        </p>
+                        <a href="#products" class="btn">Explore More &#8594;</a>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/orangej.png" alt="">
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    <!-- ----------- PRODUCTS SECTION ----------- -->
+    <section id="products">
+        <div class="small-container">
+            <h2 class="title">Our Products</h2>
+
+            <div class="filter-buttons">
+                <button onclick="filterProducts('all', this)">All</button>
+                <button onclick="filterProducts('shoes', this)">Shoes</button>
+                <button onclick="filterProducts('dress', this)">Dresses</button>
+                <button onclick="filterProducts('tops', this)">Tops</button>
+                <button onclick="filterProducts('skirt', this)">Skirts</button>
+                <button onclick="filterProducts('short', this)">Shorts</button>
+                <button onclick="filterProducts('coat', this)">Coats</button>
+                <button onclick="filterProducts('trouser', this)">Trousers</button>
+            </div>
+            <div class="row">
+                <div class="col-4 product-card" data-category="shoes">
+                    <a href="https://pin.it/5jFOTN63j" class="product-image">
+                        <img src="images/product-10.jpg" alt="Black Shoes">
+                        <!-- <div class="overlay">
+                            <button class="btn">Quick View</button>
+                        </div> -->
+                    </a>
+                    <h4>Shoes</h4>
+                    <p>Black Shoes</p>
+                </div>
+                
+                <div class="col-4 product-card" data-category="tops">
+                    <a href="https://pin.it/5jFOTN63j" class="product-image">
+                        <img src="images/tsh.jpg" alt="Black Shoes">
+                    </a>
+                    <h4>T-shirt</h4>
+                    <p>White T-shirt</p>
+                </div>
+                <div class="col-4 product-card"data-category="shoes">
+                    <a href="https://pin.it/5jFOTN63j" class="product-image">
+                        <img src="images/product-7.jpg" alt="Black Shoes">
+                        <!-- <div class="overlay">
+                            <button class="btn">Quick View</button>
+                        </div> -->
+                    </a>
+                    <h4>Socks</h4>
+                    <p>Plain Socks</p>
+                </div>
+                <div class="col-4 product-card " data-category="trouser">
+                    <a href="https://pin.it/5jFOTN63j" class="product-image">
+                        <img src="images/gallery-4.jpg" alt="Black Shoes">
+                        <!-- <div class="overlay">
+                            <button class="btn">Quick View</button>
+                        </div> -->
+                    </a>
+                    <h4>T-shirt</h4>
+                    <p>Maroon T-shirt</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    
+
+  <!-- ------js for toggle menu--- -->
+   <script>
+    var MenuItems = document.getElementById("MenuItems");
+
+    MenuItems.style.maxHeight="0px";
+
+    function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+        {
+            MenuItems.style.maxHeight = "200PX"
+        }
+        else
+        {
+            MenuItems.style.maxHeight = "0px"
+        }
+    }
+function filterProducts(category, btn) {
+    const products = document.querySelectorAll('.product-card');
+    const buttons = document.querySelectorAll('.filter-buttons button');
+
+    // 🔹 Remove active class from all buttons
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // 🔹 Add active class to clicked button
+    btn.classList.add('active');
+
+    // 🔹 Animate products
+    products.forEach(product => {
+        if (category === 'all' || product.dataset.category === category) {
+            product.classList.remove('hide');
+            product.classList.add('show');
+        } else {
+            product.classList.remove('show');
+            product.classList.add('hide');
+        }
+    });
+}
+
+    // function filterProducts(category) {
+    //     const products = document.querySelectorAll('.product-card');
+
+    //     products.forEach(product => {
+    //         if (category === 'all' || product.dataset.category === category) {
+    //             product.style.display = '';  // resets to original (better than 'block')
+    //         } else {
+    //             product.style.display = 'none';
+    //         }
+    //     });
+    // }
+    
+
+    
+   </script>
+   
+
+   
+</body>
+</html>

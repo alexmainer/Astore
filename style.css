@@ -1,0 +1,477 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url("images/bg2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-attachment: fixed;
+    font-family: 'poppins',sans-serif;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+   
+}
+nav{
+    flex: 1;
+    text-align: right;
+}
+nav ul{
+    display: inline-block;
+    list-style-type: none;
+}
+nav ul li{
+    display:inline-block ;
+   margin-right: 20px;
+}
+a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: large;
+}
+p{
+    color: #ffffff;
+}
+
+/* ------------------------General container------------------ */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* --------------------------Row layout----------------------- */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;  /* align items at the top instead of stretching */
+    justify-content: space-between;
+    padding: 20px 0;
+    
+    
+}
+
+/* -------------------------------Columns----------------------- */
+.col-2 {
+    flex: 1;
+    min-width: 300px;
+    padding: 10px;        /* tighter padding */
+}
+
+/* ------------------------------Text content-------------------- */
+.col-2 h1 {
+    font-size: 3rem;      /* slightly smaller for laptop screens */
+    margin-bottom: 20px;  /* less space below heading */
+    color: #fff;
+}
+
+.col-2 p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 15px;  /* tighter spacing */
+    color: #fff;
+}
+
+.col-2 .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #b34802;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.col-2 .btn:hover {
+    background-color: #e55b00;
+}
+
+/* Image styling */
+.col-2 img {
+    max-width: 100%;       /* stays within column width */
+    max-height: 70vh;      /* bigger but controlled */
+    height: auto;
+    display: block;
+    margin: 0 auto;         /* center horizontally */
+    object-fit: contain;
+}
+.col-2:last-child {
+    display: flex;
+    align-items: flex-start;      /* vertical centering */
+    justify-content: center;  /* horizontal centering */
+    height: 100%;             /* let the column fill the row height */
+}
+
+/* Remove extra spacing around header */
+.header {
+    padding: 0;             /* remove extra top padding */
+    margin: 0;
+    min-height: 100vh;
+}
+.header, #products {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.header .row{
+    margin-top: 70px;
+}
+.categories{
+    margin:70px 0px;
+}
+.col-3{
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+.col-3 img{
+    width: 100%;
+}
+.small-container{
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.col-4{
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+    transition: transform 0.5s;
+    width: calc(25% - 20px); /* 4 per row with gap */
+    box-sizing: border-box;
+}
+.col-4 img{
+    width: 100%;
+}
+.title{
+    text-align: center;
+    margin: 0 auto 80px;
+    position: relative;
+    line-height: 60px;
+    color: #ffffff;
+}
+.title::after{
+    content: '';
+    background: #ff523b;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+h4{
+    color: #ffffff;
+    font-weight:bold;
+}
+.col-4{
+    font-size: 14px;
+}
+.rating.fa{
+    color: #ff523b;
+}
+.col-4:hover{
+    transform: translate(-5px);
+}
+.footer{
+    background: #333;
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+.footer p{
+    color: #8a8a8a;
+
+}
+.footer h3{
+    color: #fff;
+    margin-bottom: 20px;
+
+}
+.footer-col-1{
+    min-width: 250px;
+    margin-bottom: 20px;
+    flex-basis: 30%;
+}
+.menu-icon{
+    width: 28px;
+    margin-left: 20px;
+    display: none;
+}
+
+.page-btn{
+    margin: 0 auto 80px;
+}
+.page-btn span{
+    display: inline-block;
+    border: 1px solid #ff523b;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+
+}
+.page-btn span:hover{
+    background: #ff523b;
+    color: #fff;
+
+
+}
+.single-product{
+    margin-top: 80px;
+
+}
+.single-product .col-2 img{
+    padding: 0;
+}
+.single-product .col-2{
+    padding: 20px;
+}
+.single-product h4{
+    margin: 20px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* --------ABOUT PAGE---- */
+
+.header .small-container .title {
+    font-size: 3rem;      /* <-- change this value to make the title bigger */
+    font-weight: 700;     /* <-- change this to 400 (normal), 600 (semi-bold), or 900 (extra bold) */
+    margin-bottom: 20px;
+    text-align: center;     /* or center */
+}
+.header .small-container p {
+    font-size: 1.2rem;    /* <-- change this value to increase paragraph size */
+    font-weight: 500;     /* <-- change this to 400 (normal) or 600 (semi-bold) */
+    line-height: 1.6;
+    max-width: 800px;     /* optional: limit line length for readability */
+    text-align: center;
+    margin-left: 60px;
+}
+
+/* Card Styling */
+.product-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+/* Image hover zoom */
+.product-image img {
+    width: 100%;
+    height: 250px;
+    object-fit:fill;
+    display: block;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.01);
+}
+
+/* hidden state */
+.product-card.hide {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+}
+
+/* visible state */
+.product-card.show {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+} */
+
+/* 
+.btn {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #ff3b2e;
+} */
+
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filter-buttons button {
+    background: #f5f5f5;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-buttons button:hover {
+    background: #d76610;
+    color: white;
+}
+.filter-buttons button.active {
+    background: #d76610;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---- media query for menu  */
+@media only screen and (max-width:800px){
+    nav ul{
+        position:absolute ;
+        top: 70px;
+        left: 0;
+        background: #333;
+        width: 100%;
+        overflow: hidden;
+        transition: max-height 0.5s;
+
+    }
+    nav ul li{
+        display: block;
+        margin-right: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    nav ul li a{
+        color: #fff;
+    }
+    .menu-icon{
+        display: block;
+        cursor: pointer;
+    }
+}
+
+
+
+
+/* ---- media query for less than 600 screen size */
+@media only screen and (max-width: 600px){
+    .row{
+        text-align: center;
+    }
+    .col-2, .col-3, .col-4{
+        flex-basis: 100%;
+    }
+    .single-product .row{
+        text-align: left;
+    }
+    .single-product .col-2{
+        padding: 20px 0;
+    }
+    .single-product h1{
+        font-size: 25px;
+        line-height: 35px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+
+    .col-2 {
+        text-align: center;
+    }
+
+    .col-2 h1 {
+        font-size: 1.8rem;
+    }
+
+    .col-2 p {
+        font-size: 0.9rem;
+    }
+
+    .col-2 img {
+        max-height: 40vh;    /* smaller on mobile */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .product-card img {
+        height: 200px; /* smaller images on tablets */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product-card img {
+        height: 180px; /* smaller images on mobile */
+    }
+}
