@@ -24,7 +24,7 @@
                             <li><a href="index.html">Home</a></li>
                             <li><a href="#products">Products</a></li>
                             <li><a href="about.html">About</a></li>
-                            <!-- <li><a href="">Contact</a></li> -->
+                            <li><a href="http://localhost:3000/admin.html">Dashboard</a></li>
                         </ul>
                     </nav>
                     <img src="images/menu.png" width="30px" class="menu-icon" onclick="menutoggle()">
@@ -32,7 +32,7 @@
 
                 <div class="row">
                     <div class="col-2">
-                        <h1>Welcome !<br> to AStore Fashion !!</h1>
+                        <h1>Welcome !<br> to A - Store Fashion !!</h1>
                         <p> Astore Fashion is your go-to hub for discovering top-notch fashion .where we  showcase  
                             stylish and trendy clothing from various businesses, helping you find the best fashion deals.
                         </p>
@@ -51,57 +51,24 @@
         <div class="small-container">
             <h2 class="title">Our Products</h2>
 
-            <div class="filter-buttons">
+            <div class="filter-buttons" id="filter-buttons">
+                
+                <!-- Buttons will be generated dynamically -->
+
+            </div>
+            
+            <!-- <div class="filter-buttons">
                 <button onclick="filterProducts('all', this)">All</button>
                 <button onclick="filterProducts('shoes', this)">Shoes</button>
-                <button onclick="filterProducts('dress', this)">Dresses</button>
+                <button onclick="filterProducts('dresses', this)">Dresses</button>
                 <button onclick="filterProducts('tops', this)">Tops</button>
-                <button onclick="filterProducts('skirt', this)">Skirts</button>
-                <button onclick="filterProducts('short', this)">Shorts</button>
-                <button onclick="filterProducts('coat', this)">Coats</button>
+                <button onclick="filterProducts('skirts', this)">Skirts</button>
+                <button onclick="filterProducts('shorts', this)">Shorts</button>
+                <button onclick="filterProducts('coats', this)">Coats</button>
                 <button onclick="filterProducts('trouser', this)">Trousers</button>
-            </div>
-            <div class="row">
-                <div class="col-4 product-card" data-category="shoes">
-                    <a href="https://pin.it/5jFOTN63j" class="product-image">
-                        <img src="images/product-10.jpg" alt="Black Shoes">
-                        <!-- <div class="overlay">
-                            <button class="btn">Quick View</button>
-                        </div> -->
-                    </a>
-                    <h4>Shoes</h4>
-                    <p>Black Shoes</p>
-                </div>
-                
-                <div class="col-4 product-card" data-category="tops">
-                    <a href="https://pin.it/5jFOTN63j" class="product-image">
-                        <img src="images/tsh.jpg" alt="Black Shoes">
-                    </a>
-                    <h4>T-shirt</h4>
-                    <p>White T-shirt</p>
-                </div>
-                <div class="col-4 product-card"data-category="shoes">
-                    <a href="https://pin.it/5jFOTN63j" class="product-image">
-                        <img src="images/product-7.jpg" alt="Black Shoes">
-                        <!-- <div class="overlay">
-                            <button class="btn">Quick View</button>
-                        </div> -->
-                    </a>
-                    <h4>Socks</h4>
-                    <p>Plain Socks</p>
-                </div>
-                <div class="col-4 product-card " data-category="trouser">
-                    <a href="https://pin.it/5jFOTN63j" class="product-image">
-                        <img src="images/gallery-4.jpg" alt="Black Shoes">
-                        <!-- <div class="overlay">
-                            <button class="btn">Quick View</button>
-                        </div> -->
-                    </a>
-                    <h4>T-shirt</h4>
-                    <p>Maroon T-shirt</p>
-                </div>
-                
-            </div>
+            </div> -->
+            <div class="row" id="products-container"></div>
+            
         </div>
     </section>
 
@@ -123,43 +90,30 @@
             MenuItems.style.maxHeight = "0px"
         }
     }
-function filterProducts(category, btn) {
-    const products = document.querySelectorAll('.product-card');
-    const buttons = document.querySelectorAll('.filter-buttons button');
+    function filterProducts(category, btn) {
+        const products = document.querySelectorAll('.product-card');
+        const buttons = document.querySelectorAll('.filter-buttons button');
 
-    // 🔹 Remove active class from all buttons
-    buttons.forEach(button => button.classList.remove('active'));
+        // 🔹 Remove active class from all buttons
+        buttons.forEach(button => button.classList.remove('active'));
 
-    // 🔹 Add active class to clicked button
-    btn.classList.add('active');
+        // 🔹 Add active class to clicked button
+        btn.classList.add('active');
 
-    // 🔹 Animate products
-    products.forEach(product => {
-        if (category === 'all' || product.dataset.category === category) {
-            product.classList.remove('hide');
-            product.classList.add('show');
-        } else {
-            product.classList.remove('show');
-            product.classList.add('hide');
-        }
-    });
-}
+        // 🔹 Animate products
+        products.forEach(product => {
+            if (category === 'all' || product.dataset.category === category) {
+                product.classList.remove('hide');
+                product.classList.add('show');
+            } else {
+                product.classList.remove('show');
+                product.classList.add('hide');
+            }
+        });
+    }
 
-    // function filterProducts(category) {
-    //     const products = document.querySelectorAll('.product-card');
-
-    //     products.forEach(product => {
-    //         if (category === 'all' || product.dataset.category === category) {
-    //             product.style.display = '';  // resets to original (better than 'block')
-    //         } else {
-    //             product.style.display = 'none';
-    //         }
-    //     });
-    // }
-    
-
-    
    </script>
+   <script src="main.js"></script>
    
 
    

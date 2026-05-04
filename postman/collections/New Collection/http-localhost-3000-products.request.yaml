@@ -1,0 +1,22 @@
+$kind: http-request
+name: http://localhost:3000/products
+url: http://localhost:3000/products
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Black Sneakers\",\r
+
+    \  \"description\": \"Stylish everyday sneakers\",\r
+
+    \  \"subDescription\": \"Comfortable and durable\",\r
+
+    \  \"imageUrl\": \"https://via.placeholder.com/150\",\r
+
+    \  \"category\": \"Shoes\",\r
+
+    \  \"externalLink\": \"https://example.com/product\"\r
+
+    }\r\n"
+order: 1774268314332

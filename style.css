@@ -84,7 +84,7 @@ p{
 .col-2 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #b34802;
+    background-color: #b14802;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -355,41 +355,6 @@ html {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ---- media query for menu  */
 @media only screen and (max-width:800px){
     nav ul{
@@ -475,3 +440,10 @@ html {
         height: 180px; /* smaller images on mobile */
     }
 }
+
+
+
+
+
+
+

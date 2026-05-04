@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="admin-container">
+
+    <h1>Admin Dashboard</h1>
+
+    <div class="admin-grid">
+
+        <!-- PRODUCTS SIDE -->
+        <div class="admin-box">
+
+            <section id="add-product">
+                <h2>Add Product</h2>
+                <form id="productForm">
+                    <input type="text" id="name" placeholder="Product Name" required>
+                    <input type="text" id="description" placeholder="Description" required>
+                    <input type="text" id="subDescription" placeholder="Sub-description">
+                    <input type="file" id="image" accept="image/*" required>
+                    <select id="category"></select>
+                    <input type="text" id="externalLink" placeholder="External Link" required>
+                    <button type="submit">Add Product</button>
+                </form>
+            </section>
+
+            <section id="product-list">
+                <h2>Products</h2>
+                <div id="products"></div>
+            </section>
+
+        </div>
+
+        <!-- CATEGORIES SIDE -->
+        <div class="admin-box">
+
+            <section id="add-category">
+                <h2>Add Category</h2>
+                <form id="categoryForm">
+                    <input type="text" id="categoryName" placeholder="Category Name" required>
+                    <button type="submit">Add Category</button>
+                </form>
+            </section>
+
+            <section id="manage-categories">
+                <h2>Categories</h2>
+                <div id="categoryList"></div>
+            </section>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

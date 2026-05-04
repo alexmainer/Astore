@@ -1,9 +1,24 @@
 // server.js
+const multer = require('multer');
+const path = require('path');
+
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 
 const PORT = 3000;
+
+// Multer storage configuration
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({ storage });
 
 // Middleware to parse JSON
 app.use(express.json());
@@ -28,3 +43,8 @@ app.listen(PORT, () => {
 const productRoutes = require('./routes/products');
 console.log(productRoutes);
 app.use('/products', productRoutes);
+const categoryRoutes = require('./routes/categories');
+app.use('/categories', categoryRoutes);
+
+
+app.use(express.static(path.join(__dirname)));
