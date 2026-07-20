@@ -1,12 +1,13 @@
 const productsContainer = document.getElementById('products-container');
 
-const API_URL = 'http://localhost:3000/products';
+// const API_URL = 'http://localhost:3000/products';
+const API_URL = 'https://astore-d3zi.onrender.com/products';
 
 const filterContainer = document.getElementById('filter-buttons');
 
 async function loadCategories() {
     try {
-        const res = await fetch('http://localhost:3000/categories');
+        const res = await fetch('https://astore-d3zi.onrender.com/categories');
         const categories = await res.json();
 
         filterContainer.innerHTML = '';
