@@ -1,12 +1,19 @@
 // server.js
 require('dotenv').config();
 
+
 const multer = require('multer');
 const path = require('path');
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
+app.use(cors({
+    origin: "https://alexmainer.github.io",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: false
+}));
 
 const PORT = process.env.PORT || 3000;
 
@@ -22,16 +29,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// Middleware to parse JSON
 app.use(express.json());
 
-// MongoDB connection (replace with your URI)
-// mongoose.connect('mongodb://127.0.0.1:27017/astore', {
-//     // useNewUrlParser: true,
-//     // useUnifiedTopology: true
-// })
-// .then(() => console.log('MongoDB connected!'))
-// .catch(err => console.log('MongoDB connection error:', err));
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB Atlas connected!'))
@@ -42,9 +41,7 @@ app.get('/', (req, res) => {
 });
 
 // THIS IS THE KEY: listen to a port
-app.listen(PORT, () => {
-    console.log(`Server running on ${PORT}`);
-});
+
 const productRoutes = require('./routes/products');
 console.log(productRoutes);
 app.use('/products', productRoutes);
@@ -53,3 +50,7 @@ app.use('/categories', categoryRoutes);
 
 
 app.use(express.static(path.join(__dirname)));
+
+app.listen(PORT, () => {
+    console.log(`Server running on ${PORT}`);
+});
