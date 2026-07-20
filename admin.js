@@ -5,7 +5,7 @@ const categorySelect = document.getElementById('category');
 const productForm = document.getElementById('productForm');
 const productsDiv = document.getElementById('products');
 
-const API_BASE = 'http://localhost:3000';
+const API_BASE = 'https://astore-d3zi.onrender.com';
 const categoryForm = document.getElementById('categoryForm');
 const categoryListDiv = document.getElementById('categoryList');
 
