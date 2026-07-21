@@ -2,20 +2,27 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
 
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const { v2: cloudinary } = require('cloudinary');
+
 const multer = require('multer');
 const path = require('path');
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/');
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname));
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: 'astore-products',
+        allowed_formats: ['jpg', 'jpeg', 'png', 'webp']
     }
 });
 
 const upload = multer({ storage });
-
 
 // GET all products
 router.get('/', async (req, res) => {
@@ -37,7 +44,7 @@ router.post('/', upload.single('image'), async (req, res) => {
             subDescription: req.body.subDescription,
             category: req.body.category,
             externalLink: req.body.externalLink,
-            imageUrl: req.file ? `/uploads/${req.file.filename}` : ""
+            imageUrl: req.file ? req.file.path : ""
         });
 
         await newProduct.save();
