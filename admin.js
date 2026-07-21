@@ -158,13 +158,24 @@ productForm.addEventListener('submit', async (e) => {
     formData.append('image', document.getElementById('image').files[0]);
 
     try {
-        await fetch(`${API_BASE}/products`, {
-            method: 'POST',
-            body: formData
-        });
+        const response = await fetch(`${API_BASE}/products`, {
+        method: 'POST',
+        body: formData
+    });
 
-        productForm.reset();
-        fetchProducts(); // refresh list
+    const data = await response.json();
+
+    console.log("Response:", data);
+
+    if (!response.ok) {
+        alert(data.message || "Upload failed");
+        return;
+    }
+
+    alert("Product added successfully!");
+
+    productForm.reset();
+    fetchProducts(); // refresh list
 
     } catch (err) {
         console.error('Error adding product:', err);
