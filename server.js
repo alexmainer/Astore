@@ -50,6 +50,8 @@ app.use('/categories', categoryRoutes);
 
 
 app.use(express.static(path.join(__dirname)));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 
 app.listen(PORT, () => {
     console.log(`Server running on ${PORT}`);
