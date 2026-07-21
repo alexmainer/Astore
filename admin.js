@@ -28,7 +28,7 @@ categoryForm.addEventListener('submit', async (e) => {
     const name = document.getElementById('categoryName').value;
 
     try {
-        await fetch('http://localhost:3000/categories', {
+        await fetch('https://astore-d3zi.onrender.com/categories', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ categoryForm.addEventListener('submit', async (e) => {
 
 async function loadAdminCategories() {
     try {
-        const res = await fetch('http://localhost:3000/categories');
+        const res = await fetch('https://astore-d3zi.onrender.com/categories');
         const categories = await res.json();
 
         categoryListDiv.innerHTML = '';
@@ -92,7 +92,7 @@ async function fetchCategories() {
 // Delete Categories
 async function deleteCategory(id) {
     try {
-        await fetch(`http://localhost:3000/categories/${id}`, {
+        await fetch(`https://astore-d3zi.onrender.com/categories/${id}`, {
             method: 'DELETE'
         });
 
