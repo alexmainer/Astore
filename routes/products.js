@@ -37,6 +37,10 @@ router.get('/', async (req, res) => {
 
 // POST (add new product)
 router.post('/', upload.single('image'), async (req, res) => {
+    console.log("POST /products reached");
+    console.log(req.body);
+    console.log(req.file);
+
     try {
         const newProduct = new Product({
             name: req.body.name,
@@ -51,7 +55,11 @@ router.post('/', upload.single('image'), async (req, res) => {
         res.json(newProduct);
 
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        console.error("UPLOAD ERROR:", err);
+        res.status(500).json({
+            message: err.message,
+            stack: err.stack
+        });
     }
 });
 
